@@ -1,8 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, set, push, onValue, query, orderByChild, limitToLast }
-    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getDatabase, ref, set, update, get } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-// 1. YOUR FIREBASE CONFIG
 const firebaseConfig = {
     apiKey: "AIzaSyDmkfNBFNKCyZctwdYDCYNhv2zadcW661k",
     authDomain: "quizapp-643e2.firebaseapp.com",
@@ -14,77 +13,84 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// 2. QUIZ DATA
-const questions = [
-    { q: "Which planet is the 'Blue Giant'?", a: ["Earth", "Neptune", "Mars", "Jupiter"], c: 1 },
-    { q: "What is the boiling point of water?", a: ["90°C", "120°C", "100°C", "110°C"], c: 2 },
-    { q: "Which CSS property adds glass effect?", a: ["Blur", "Backdrop-filter", "Opacity", "Glass-mode"], c: 1 }
-];
+let currentUser = null;
+let currentPoints = 0;
 
-// 3. APP STATE
-let currentQ = 0;
-let score = 0;
-let user = "";
-
-// 4. UI HANDLERS
-const startBtn = document.getElementById('start-btn');
-const authSection = document.getElementById('auth-section');
-const quizSection = document.getElementById('quiz-section');
-const lbSection = document.getElementById('leaderboard-section');
-
-startBtn.onclick = () => {
-    user = document.getElementById('username-input').value || "Guest";
-    authSection.classList.add('hidden');
-    quizSection.classList.remove('hidden');
-    loadQuestion();
+// Quiz Data per Tab
+const quizzes = {
+    "tech-quiz": [
+        { q: "HTML stands for?", a: ["HyperText Markup Language", "HighText Machine Language"], c: 0 },
+        { q: "React is a...", a: ["Database", "JS Library"], c: 1 }
+    ],
+    "science-quiz": [
+        { q: "Pure water pH?", a: ["5", "7"], c: 1 }
+    ]
 };
 
-function loadQuestion() {
-    const data = questions[currentQ];
-    document.getElementById('question-text').innerText = data.q;
-    const grid = document.getElementById('answer-grid');
+// 1. REGISTRATION LOGIC
+document.getElementById('register-btn').onclick = async () => {
+    const name = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value.replace('.', '_'); // Firebase key safety
+
+    if(!name || !email) return alert("Please fill details");
+
+    currentUser = email;
+    await set(ref(db, 'users/' + email), { name, points: 0 });
+    
+    document.getElementById('reg-page').classList.add('hidden');
+    document.getElementById('dash-page').classList.remove('hidden');
+    document.getElementById('welcome-msg').innerText = `Welcome, ${name}!`;
+};
+
+// 2. TAB SWITCHING LOGIC
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.onclick = (e) => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        startQuiz(e.target.dataset.target);
+    };
+});
+
+function startQuiz(category) {
+    const data = quizzes[category];
+    renderQuestion(data, 0, category);
+}
+
+function renderQuestion(data, index, cat) {
+    const q = data[index];
+    const grid = document.getElementById('options-grid');
+    document.getElementById('q-text').innerText = q.q;
     grid.innerHTML = '';
 
-    data.a.forEach((opt, i) => {
+    q.a.forEach((opt, i) => {
         const btn = document.createElement('button');
+        btn.className = 'opt-btn';
         btn.innerText = opt;
-        btn.onclick = () => handleAnswer(i);
+        btn.onclick = () => {
+            // Reveal Answer Logic
+            const isCorrect = i === q.c;
+            btn.classList.add(isCorrect ? 'correct' : 'wrong');
+            
+            if(isCorrect) {
+                currentPoints += 10;
+                updatePoints();
+            }
+
+            // Progress Bar Update
+            const prog = ((index + 1) / data.length) * 100;
+            document.getElementById('p-bar').style.width = prog + "%";
+
+            // Next Question after delay
+            setTimeout(() => {
+                if(index + 1 < data.length) renderQuestion(data, index + 1, cat);
+                else alert("Quiz Category Finished!");
+            }, 1500);
+        };
         grid.appendChild(btn);
     });
 }
 
-function handleAnswer(choice) {
-    if (choice === questions[currentQ].c) score += 10;
-    currentQ++;
-
-    if (currentQ < questions.length) {
-        loadQuestion();
-    } else {
-        finishQuiz();
-    }
+function updatePoints() {
+    document.getElementById('total-points').innerText = currentPoints;
+    update(ref(db, 'users/' + currentUser), { points: currentPoints });
 }
-
-function finishQuiz() {
-    quizSection.classList.add('hidden');
-    lbSection.classList.remove('hidden');
-
-    // Save to Firebase
-    const scoresRef = ref(db, 'leaderboard');
-    push(scoresRef, { username: user, score: score });
-
-    loadLeaderboard();
-}
-
-function loadLeaderboard() {
-    const lbRef = query(ref(db, 'leaderboard'), orderByChild('score'), limitToLast(5));
-    onValue(lbRef, (snapshot) => {
-        const list = document.getElementById('leaderboard-list');
-        list.innerHTML = '';
-        const data = [];
-        snapshot.forEach(child => { data.push(child.val()); });
-        data.reverse().forEach(entry => {
-            list.innerHTML += `<li><span>${entry.username}</span> <b>${entry.score} pts</b></li>`;
-        });
-    });
-
-}   

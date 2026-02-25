@@ -6,7 +6,7 @@ import { getDatabase, ref, set, push, onValue, query, orderByChild, limitToLast 
 const firebaseConfig = {
     apiKey: "AIzaSyDmkfNBFNKCyZctwdYDCYNhv2zadcW661k",
     authDomain: "quizapp-643e2.firebaseapp.com",
-    databaseURL: "quizapp-643e2.firebasestorage.app",
+    databaseURL: "https://quizapp-643e2-default-rtdb.asia-southeast1.firebasedatabase.app/",
     projectId: "quizapp-643e2",
     appId: "1:1091827502621:web:e4fca69723b4f4f60240f4"
 };
@@ -86,4 +86,5 @@ function loadLeaderboard() {
             list.innerHTML += `<li><span>${entry.username}</span> <b>${entry.score} pts</b></li>`;
         });
     });
+
 }   

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlassQuiz | Interactive Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <main class="glass-container">
+        <header>
+            <h1>Glass<span>Quiz</span></h1>
+        </header>
+
+        <section id="auth-section" class="content-box">
+            <input type="text" id="username-input" placeholder="Enter your nickname..." maxlength="15">
+            <button id="start-btn">Start Quiz</button>
+        </section>
+
+        <section id="quiz-section" class="content-box hidden">
+            <div id="question-container">
+                <h2 id="question-text">Question goes here?</h2>
+                <div id="answer-grid" class="grid"></div>
+            </div>
+        </section>
+
+        <section id="leaderboard-section" class="content-box hidden">
+            <h3>Global Leaderboard</h3>
+            <ul id="leaderboard-list"></ul>
+            <button onclick="location.reload()">Play Again</button>
+        </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

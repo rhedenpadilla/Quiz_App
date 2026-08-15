@@ -1,0 +1,81 @@
+:root {
+    --bg: #030712;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --blue: #38bdf8;
+    --green: #4ade80;
+    --red: #f87171;
+}
+
+body {
+    background-color: var(--bg);
+    color: #f1f5f9;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.glass-shell {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 32px;
+    padding: 40px;
+    width: 450px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    background: rgba(0,0,0,0.2);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.tab-btn.active {
+    background: var(--blue);
+    color: var(--bg);
+    font-weight: bold;
+}
+
+.stat-pill {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--blue);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+#p-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--blue);
+    transition: width 0.4s ease;
+}
+
+.correct { border: 2px solid var(--green) !important; background: rgba(74, 222, 128, 0.1) !important; }
+.wrong { border: 2px solid var(--red) !important; background: rgba(248, 113, 113, 0.1) !important; }

@@ -79,7 +79,7 @@ export default function QuizEngine() {
       <div className="container" style={{ marginTop: '2rem' }}>
         <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Quiz Completed! 🎉</h2>
-          <div style={{ fontSize: '4rem', fontWeight: 'bold', color: results.score >= 50 ? 'var(--lime-green)' : 'var(--crimson-red)', margin: '2rem 0' }}>
+          <div style={{ fontSize: '4rem', fontWeight: 'bold', color: results.score >= 50 ? 'var(--accent-gold)' : '#ff4444', margin: '2rem 0', textShadow: '0 0 20px rgba(0,0,0,0.5)' }}>
             {results.score}%
           </div>
           <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
@@ -121,8 +121,8 @@ export default function QuizEngine() {
             <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
             <span>{progress}%</span>
           </div>
-          <div style={{ width: '100%', height: '10px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '5px', overflow: 'hidden' }}>
-            <div style={{ width: `${progress}%`, height: '100%', backgroundColor: 'var(--lime-green)', transition: 'width 0.3s' }}></div>
+          <div style={{ width: '100%', height: '12px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '6px', overflow: 'hidden', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.2)' }}>
+            <div style={{ width: `${progress}%`, height: '100%', background: 'linear-gradient(90deg, var(--slime-dark), var(--slime-glow))', transition: 'width 0.4s ease' }}></div>
           </div>
         </div>
 
@@ -136,9 +136,9 @@ export default function QuizEngine() {
               style={{
                 padding: '1rem',
                 textAlign: 'left',
-                background: answers[currentQuestionIndex] === choice.id ? 'var(--orange)' : 'var(--glass-bg)',
-                border: `1px solid ${answers[currentQuestionIndex] === choice.id ? 'var(--orange)' : 'var(--glass-border)'}`,
-                borderRadius: '8px',
+                background: answers[currentQuestionIndex] === choice.id ? 'var(--slime-dark)' : 'var(--glass-bg)',
+                border: `1px solid ${answers[currentQuestionIndex] === choice.id ? 'var(--slime-glow)' : 'var(--glass-border)'}`,
+                borderRadius: '12px',
                 color: 'white',
                 cursor: 'pointer',
                 fontSize: '1.1rem',

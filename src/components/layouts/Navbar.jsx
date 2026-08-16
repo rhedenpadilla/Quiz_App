@@ -12,19 +12,23 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="glass-panel" style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 2rem', margin: '1rem', borderRadius: '50px' }}>
-      <div style={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'var(--lime-green)' }}>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>QuizMaster</Link>
+    <nav className="glass-panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem', margin: '1rem', borderRadius: '50px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.5rem', color: 'var(--slime-base)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <img src="/src/assets/Miru - Main.png" alt="Miru" style={{ height: '40px', width: '40px', objectFit: 'contain' }} className="animate-float" />
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Mimora</Link>
+        </div>
+        {!user && (
+          <Link to="/login" className="btn-primary" style={{ textDecoration: 'none', padding: '0.5rem 1rem', fontSize: '0.9rem' }}>Login / Sign Up Now</Link>
+        )}
       </div>
       <div>
-        {user ? (
-          <>
-            <span style={{ marginRight: '1rem' }}>Welcome, {user.name}</span>
-            <Link to="/dashboard" style={{ marginRight: '1rem', textDecoration: 'none', color: 'var(--text-light)' }}>Dashboard</Link>
-            <button onClick={handleLogout} className="btn-secondary" style={{ padding: '0.5rem 1rem' }}>Logout</button>
-          </>
-        ) : (
-          <Link to="/login" className="btn-primary" style={{ textDecoration: 'none' }}>Login / Join</Link>
+        {user && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ color: 'var(--text-muted)' }}>Welcome, <strong style={{ color: 'var(--text-light)' }}>{user.name}</strong></span>
+            <Link to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-light)', fontWeight: 'bold' }}>Dashboard</Link>
+            <button onClick={handleLogout} className="btn-secondary" style={{ padding: '0.5rem 1.5rem' }}>Logout</button>
+          </div>
         )}
       </div>
     </nav>

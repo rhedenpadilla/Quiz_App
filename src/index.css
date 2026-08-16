@@ -1,15 +1,18 @@
 :root {
-  /* Color Palette */
-  --navy-blue: #1A2342;
-  --crimson-red: #B21F35;
-  --orange: #F15F22;
-  --lime-green: #C5E131;
-
-  --text-light: #F3F4F6;
-  --text-muted: #9CA3AF;
-  --bg-dark: #0f1426;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  /* Mimora Slime Theme Palette */
+  --slime-base: #00d4ff;
+  --slime-glow: #66e3ff;
+  --slime-dark: #008eb3;
+  --accent-gold: #ffd700;
+  
+  --text-light: #ffffff;
+  --text-muted: #a3d9eb;
+  --bg-dark: #051024;
+  --bg-darker: #020713;
+  
+  --glass-bg: rgba(0, 212, 255, 0.05);
+  --glass-border: rgba(0, 212, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.15);
 }
 
 * {
@@ -20,20 +23,27 @@
 }
 
 body {
-  background-color: var(--navy-blue);
+  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
   color: var(--text-light);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Glassmorphism Utilities */
+/* Glassmorphism Utilities (Bubbly) */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 24px; /* More bubbly */
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(0, 212, 255, 0.25);
 }
 
 /* Typography */
@@ -44,67 +54,71 @@ h1, h2, h3, h4 {
 
 /* Buttons */
 .btn-primary {
-  background-color: var(--orange);
+  background: linear-gradient(135deg, var(--slime-base), var(--slime-dark));
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 20px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
 }
 
 .btn-primary:hover {
-  background-color: #d1511c;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+  background: linear-gradient(135deg, var(--slime-glow), var(--slime-base));
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--orange);
-  border: 2px solid var(--orange);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  color: var(--slime-base);
+  border: 2px solid var(--slime-base);
+  padding: 0.75rem 1.75rem;
+  border-radius: 20px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background-color: var(--orange);
-  color: white;
+  background-color: rgba(0, 212, 255, 0.1);
+  color: var(--slime-glow);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
 }
 
 .btn-success {
-  background-color: var(--lime-green);
-  color: var(--navy-blue);
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: 20px;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-success:hover {
-  background-color: #aecd2a;
+  background-color: #ffea70;
 }
 
 /* Inputs */
 .input-field {
   width: 100%;
   padding: 0.75rem 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   color: white;
   margin-bottom: 1rem;
-  transition: border-color 0.2s;
+  transition: all 0.3s;
 }
 
 .input-field:focus {
   outline: none;
-  border-color: var(--orange);
+  border-color: var(--slime-base);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 /* Layout Utilities */
@@ -122,4 +136,25 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.8); }
+  100% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.4); }
+}
+
+.animate-glow {
+  animation: pulse-glow 3s infinite;
 }

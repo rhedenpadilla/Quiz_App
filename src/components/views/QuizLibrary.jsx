@@ -33,14 +33,14 @@ export default function QuizLibrary() {
         {filteredQuizzes.map(quiz => (
           <div key={quiz.id} className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
             <h4 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '1.25rem' }}>{quiz.title}</h4>
-            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '0.8rem', padding: '0.25rem 0.5rem', background: 'rgba(255,255,255,0.1)', borderRadius: '4px' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.8rem', padding: '0.3rem 0.6rem', background: 'rgba(0,212,255,0.15)', borderRadius: '12px', border: '1px solid var(--slime-dark)' }}>
                 {quiz.subject_id}
               </span>
-              <span style={{ fontSize: '0.8rem', padding: '0.25rem 0.5rem', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', color: 'var(--orange)' }}>
+              <span style={{ fontSize: '0.8rem', padding: '0.3rem 0.6rem', background: 'rgba(255,215,0,0.15)', borderRadius: '12px', color: 'var(--accent-gold)', border: '1px solid rgba(255,215,0,0.3)' }}>
                 {quiz.difficulty}
               </span>
-              <span style={{ fontSize: '0.8rem', padding: '0.25rem 0.5rem', background: 'rgba(255,255,255,0.1)', borderRadius: '4px' }}>
+              <span style={{ fontSize: '0.8rem', padding: '0.3rem 0.6rem', background: 'rgba(255,255,255,0.05)', borderRadius: '12px' }}>
                 ~{quiz.duration} mins
               </span>
             </div>

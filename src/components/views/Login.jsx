@@ -24,8 +24,7 @@ export default function Login() {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#e5e7eb', padding: '2rem', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', width: '100%', maxWidth: '1100px', height: '100%', maxHeight: '750px', backgroundColor: 'white', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }}>
+    <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden', backgroundColor: 'white' }}>
       
       {/* Left Side: Graphic / Branding */}
       <div style={{ flex: 1, backgroundImage: 'url(/src/assets/login_bg.png)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
@@ -52,7 +51,7 @@ export default function Login() {
       </div>
 
       {/* Right Side: Form */}
-      <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3rem', backgroundColor: 'white' }}>
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3rem', backgroundColor: 'white', borderRadius: '32px 0 0 32px', marginLeft: '-32px', position: 'relative', zIndex: 1, boxShadow: '-10px 0 40px rgba(0,0,0,0.15)' }}>
         <div style={{ width: '100%', maxWidth: '420px' }}>
           
           <div style={{ display: 'flex', backgroundColor: '#F3F4F6', borderRadius: '16px', padding: '0.35rem', marginBottom: '2.5rem' }}>
@@ -129,8 +128,6 @@ export default function Login() {
             </div>
           </form>
         </div>
-      </div>
-      
       </div>
     </div>
   );

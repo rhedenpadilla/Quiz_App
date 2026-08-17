@@ -27,11 +27,11 @@ export default function Login() {
     <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden', backgroundColor: 'white' }}>
       
       {/* Left Side: Graphic / Branding */}
-      <div style={{ flex: 1, backgroundImage: 'url(/src/assets/login_bg.png)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
+      <div className="animate-fade-in" style={{ flex: 1, backgroundImage: 'url(/src/assets/login_bg.png)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
         
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4rem' }}>
-            <img src="/src/assets/Mimora-Logo.png" alt="Mimora" style={{ height: '40px' }} />
+            <img src="/src/assets/Mimora-Logo.png" alt="Mimora" style={{ height: '70px', filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9))' }} className="animate-float" />
           </div>
 
           <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.1', marginBottom: '1.5rem' }}>
@@ -51,7 +51,19 @@ export default function Login() {
       </div>
 
       {/* Right Side: Form */}
-      <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3rem', backgroundColor: 'white', borderRadius: '32px 0 0 32px', marginLeft: '-32px', position: 'relative', zIndex: 1, boxShadow: '-10px 0 40px rgba(0,0,0,0.15)' }}>
+      <div className="animate-slide-in-right" style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '3rem', backgroundColor: 'white', borderRadius: '32px 0 0 32px', marginLeft: '-32px', position: 'relative', zIndex: 1, boxShadow: '-10px 0 40px rgba(0,0,0,0.15)' }}>
+        
+        {/* Close Button */}
+        <button 
+          onClick={() => navigate('/')} 
+          style={{ position: 'absolute', top: '2rem', right: '2rem', zIndex: 10, background: '#F3F4F6', border: 'none', cursor: 'pointer', color: '#6B7280', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.25rem', transition: 'all 0.3s', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }} 
+          onMouseOver={(e) => { e.currentTarget.style.background = '#E5E7EB'; e.currentTarget.style.color = '#374151'; e.currentTarget.style.transform = 'scale(1.1)'; }} 
+          onMouseOut={(e) => { e.currentTarget.style.background = '#F3F4F6'; e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.transform = 'scale(1)'; }}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
         <div style={{ width: '100%', maxWidth: '420px' }}>
           
           <div style={{ display: 'flex', backgroundColor: '#F3F4F6', borderRadius: '16px', padding: '0.35rem', marginBottom: '2.5rem' }}>

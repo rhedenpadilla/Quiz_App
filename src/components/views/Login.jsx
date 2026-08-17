@@ -27,13 +27,11 @@ export default function Login() {
     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F3F4F6' }}>
       
       {/* Left Side: Graphic / Branding */}
-      <div style={{ flex: 1, backgroundColor: 'var(--bg-dark)', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(91,134,229,0.2) 0%, transparent 60%)', borderRadius: '50%' }}></div>
+      <div style={{ flex: 1, backgroundImage: 'url(/src/assets/login_bg.png)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
         
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '4rem' }}>
-            <img src="/src/assets/Miru - Main.png" alt="Miru" style={{ height: '40px', width: '40px' }} />
-            <span style={{ fontSize: '1.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>MIMORA</span>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4rem' }}>
+            <img src="/src/assets/Mimora-Logo.png" alt="Mimora" style={{ height: '40px' }} />
           </div>
 
           <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.1', marginBottom: '1.5rem' }}>

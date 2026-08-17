@@ -200,7 +200,7 @@ export default function LandingPage() {
             <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>Ready to begin your adventure?</h2>
             <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>Join thousands of students learning and growing together!</p>
           </div>
-          <Link to="/login" style={{ background: 'white', color: 'var(--primary-blue)', padding: '1rem 2.5rem', borderRadius: '20px', fontWeight: 'bold', textDecoration: 'none', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}>
+          <Link to="/login?mode=register" style={{ background: 'white', color: 'var(--primary-blue)', padding: '1rem 2.5rem', borderRadius: '20px', fontWeight: 'bold', textDecoration: 'none', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}>
             Create Free Account
           </Link>
         </div>

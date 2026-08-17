@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import AuthService from '../../services/AuthService.js';
 
 export default function Login() {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [searchParams] = useSearchParams();
+  const [isSignUp, setIsSignUp] = useState(searchParams.get('mode') === 'register');
   const [username, setUsername] = useState('Alex O.');
   const [password, setPassword] = useState('password123');
   const [error, setError] = useState('');

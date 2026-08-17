@@ -38,7 +38,7 @@ export default function Navbar() {
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <Link to="/login" style={{ textDecoration: 'none', padding: '0.6rem 1.5rem', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.6)', color: 'white', fontWeight: '600', transition: 'all 0.3s', backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255,255,255,0.1)' }}>Login</Link>
-            <Link to="/login" style={{ textDecoration: 'none', padding: '0.6rem 1.5rem', borderRadius: '20px', backgroundColor: 'white', color: 'var(--primary-blue)', fontWeight: '700', transition: 'all 0.3s', boxShadow: '0 4px 10px rgba(0,0,0,0.2)' }}>Sign Up</Link>
+            <Link to="/login?mode=register" style={{ textDecoration: 'none', padding: '0.6rem 1.5rem', borderRadius: '20px', backgroundColor: 'white', color: 'var(--primary-blue)', fontWeight: '700', transition: 'all 0.3s', boxShadow: '0 4px 10px rgba(0,0,0,0.2)' }}>Sign Up</Link>
           </div>
         )}
       </div>

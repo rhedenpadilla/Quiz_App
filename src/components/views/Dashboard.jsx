@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import miruEvolution from '../../assets/Miru - Evolution.png';
+import miruThinking from '../../assets/Miru-thinking.png';
 
 export default function Dashboard() {
   return (
@@ -14,7 +16,7 @@ export default function Dashboard() {
           {/* Level Badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', backgroundColor: 'var(--bg-light)', padding: '0.75rem 1.5rem', borderRadius: '16px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
             <div style={{ backgroundColor: '#F3F4F6', padding: '0.5rem', borderRadius: '50%' }}>
-              <img src="/src/assets/Miru - Evolution.png" alt="Scholar Slime" style={{ height: '30px', width: '30px' }} />
+              <img src={miruEvolution} alt="Scholar Slime" style={{ height: '30px', width: '30px' }} />
             </div>
             <div>
               <div style={{ fontWeight: '600', color: 'var(--text-dark)', fontSize: '0.95rem' }}>Level 24</div>
@@ -159,7 +161,7 @@ export default function Dashboard() {
              <p style={{ color: '#6B7280', fontSize: '0.9rem', marginBottom: '1rem' }}>You're on track to meet your weekly goals.</p>
              <Link to="/explore" style={{ color: 'var(--primary-blue)', fontWeight: '600', textDecoration: 'none' }}>View Details</Link>
              
-             <img src="/src/assets/Miru - thinking.png" alt="Miru Thinking" style={{ position: 'absolute', bottom: '10px', right: '10px', height: '60px' }} className="animate-float" />
+             <img src={miruThinking} alt="Miru Thinking" style={{ position: 'absolute', bottom: '10px', right: '10px', height: '60px' }} className="animate-float" />
           </div>
         </div>
       </div>

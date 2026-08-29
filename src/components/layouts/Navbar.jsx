@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthService from '../../services/AuthService.js';
+import mimoraLogo from '../../assets/Mimora-Logo.png';
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function Navbar() {
     <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem 4rem', position: 'absolute', top: 0, left: 0, right: 0, zIndex: 100 }}>
       {/* Logo */}
       <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-        <img src="/src/assets/Mimora-Logo.png" alt="Mimora Logo" style={{ height: '45px', filter: 'drop-shadow(0 2px 10px rgba(255,255,255,0.8))' }} />
+        <img src={mimoraLogo} alt="Mimora Logo" style={{ height: '45px', filter: 'drop-shadow(0 2px 10px rgba(255,255,255,0.8))' }} />
       </Link>
 
       {/* Center Links */}

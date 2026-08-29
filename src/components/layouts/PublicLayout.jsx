@@ -1,6 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
+import mimoraLogo from '../../assets/Mimora-Logo.png';
+import miruThinking from '../../assets/Miru-thinking.png';
 
 export default function PublicLayout() {
   return (
@@ -16,7 +18,7 @@ export default function PublicLayout() {
           {/* Brand Col */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
-              <img src="/src/assets/Mimora-Logo.png" alt="Mimora" style={{ height: '40px' }} />
+              <img src={mimoraLogo} alt="Mimora" style={{ height: '40px' }} />
             </div>
             <p style={{ color: '#9CA3AF', fontSize: '0.9rem', lineHeight: '1.6', maxWidth: '250px' }}>
               A gamified learning platform for curious minds.
@@ -72,7 +74,7 @@ export default function PublicLayout() {
 
         {/* Mascot Peeking from Corner */}
         <div style={{ position: 'absolute', bottom: '-20px', right: '20px', zIndex: 1 }}>
-          <img src="/src/assets/Miru - thinking.png" alt="Miru" style={{ height: '120px', filter: 'drop-shadow(0 0 20px rgba(0,194,255,0.4))' }} className="animate-float" />
+          <img src={miruThinking} alt="Miru" style={{ height: '120px', filter: 'drop-shadow(0 0 20px rgba(0,194,255,0.4))' }} className="animate-float" />
         </div>
 
         {/* Copyright */}

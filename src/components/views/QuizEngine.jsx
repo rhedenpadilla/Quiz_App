@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import miruEvolution from '../../assets/Miru - Evolution.png';
+import miruThinking from '../../assets/Miru-thinking.png';
 
 export default function QuizEngine() {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ export default function QuizEngine() {
               </div>
             </div>
             
-            <img src="/src/assets/Miru - Evolution.png" alt="Happy Miru" style={{ height: '120px' }} className="animate-float" />
+            <img src={miruEvolution} alt="Happy Miru" style={{ height: '120px' }} className="animate-float" />
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '3rem' }}>
@@ -151,7 +153,7 @@ export default function QuizEngine() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ display: 'inline-block', width: '12px', height: '12px', backgroundColor: '#F3F4F6', borderRadius: '3px' }}></span> Unanswered</div>
             </div>
             
-            <img src="/src/assets/Miru - thinking.png" alt="Miru Thinking" style={{ width: '80px', display: 'block', margin: '2rem auto 0', opacity: 0.8 }} />
+            <img src={miruThinking} alt="Miru Thinking" style={{ width: '80px', display: 'block', margin: '2rem auto 0', opacity: 0.8 }} />
           </div>
         </div>
       </div>

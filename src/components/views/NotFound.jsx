@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import miruThinking from '../../assets/Miru-thinking.png';
 
 export default function NotFound() {
   return (
@@ -9,13 +10,13 @@ export default function NotFound() {
       <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '3rem' }}>
         Let Miru guide you back home!
       </p>
-      
+
       <div style={{ position: 'relative', marginBottom: '4rem' }}>
-        <img 
-          src="/src/assets/Miru - thinking.png" 
-          alt="Confused Miru" 
-          style={{ height: '150px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))' }} 
-          className="animate-float" 
+        <img
+          src={miruThinking}
+          alt="Confused Miru"
+          style={{ height: '150px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))' }}
+          className="animate-float"
         />
         {/* Confused Question Marks */}
         <div style={{ position: 'absolute', top: '-20px', left: '-20px', fontSize: '2rem', color: 'var(--accent-gold)' }} className="animate-float">?</div>

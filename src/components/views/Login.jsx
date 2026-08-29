@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import AuthService from '../../services/AuthService.js';
+import loginBg from '../../assets/login_bg.png';
+import mimoraLogo from '../../assets/Mimora-Logo.png';
+import miruEvolution from '../../assets/Miru - Evolution.png';
 
 export default function Login() {
   const [searchParams] = useSearchParams();
@@ -28,11 +31,11 @@ export default function Login() {
     <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden', backgroundColor: 'white' }}>
       
       {/* Left Side: Graphic / Branding */}
-      <div className="animate-fade-in" style={{ flex: 1, backgroundImage: 'url(/src/assets/login_bg.png)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
+      <div className="animate-fade-in" style={{ flex: 1, backgroundImage: `url(${loginBg})`, backgroundSize: 'cover', backgroundPosition: 'center', color: 'white', display: 'flex', flexDirection: 'column', padding: '4rem', position: 'relative', overflow: 'hidden' }}>
         
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4rem' }}>
-            <img src="/src/assets/Mimora-Logo.png" alt="Mimora" style={{ height: '70px', filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9))' }} className="animate-float" />
+            <img src={mimoraLogo} alt="Mimora" style={{ height: '70px', filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9))' }} className="animate-float" />
           </div>
 
           <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.1', marginBottom: '1.5rem' }}>
@@ -43,7 +46,7 @@ export default function Login() {
           </p>
 
           <img 
-            src="/src/assets/Miru - Evolution.png" 
+            src={miruEvolution} 
             alt="Miru Happy" 
             style={{ maxWidth: '350px', display: 'block', margin: '0 auto', filter: 'drop-shadow(0 20px 30px rgba(0,194,255,0.2))' }} 
             className="animate-float"

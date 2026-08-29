@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Users, TrendingUp, Gamepad2, Trophy, Award } from 'lucide-react';
+import homepageBg from '../../assets/homepage_background.png';
+import miruMain from '../../assets/miru-main.png';
+import miruEvolution from '../../assets/Miru - Evolution.png';
 
 export default function LandingPage() {
 
@@ -27,7 +30,7 @@ export default function LandingPage() {
         style={{
           paddingTop: '10rem',
           paddingBottom: '12rem',
-          backgroundImage: 'linear-gradient(to right, rgba(11, 15, 25, 0.9) 0%, rgba(11, 15, 25, 0.3) 100%), url(/src/assets/homepage_background.png)',
+          backgroundImage: `linear-gradient(to right, rgba(11, 15, 25, 0.9) 0%, rgba(11, 15, 25, 0.3) 100%), url(${homepageBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -61,7 +64,7 @@ export default function LandingPage() {
           {/* Hero Right: Mascot Image */}
           <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center', position: 'relative' }} className="reveal reveal-delay-2">
             <img
-              src="/src/assets/Miru - Main.png"
+              src={miruMain}
               alt="Miru Main"
               style={{ maxWidth: '100%', maxHeight: '450px', zIndex: 1, filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.3))' }}
               className="animate-float"
@@ -125,7 +128,7 @@ export default function LandingPage() {
           <div className="reveal reveal-delay-2" style={{ backgroundColor: 'white', borderRadius: '24px', padding: '1.5rem', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
             <h3 style={{ fontSize: '1rem', color: 'var(--text-dark)', marginBottom: '1.5rem', fontWeight: '600' }}>Student Progress</h3>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-              <img src="/src/assets/Miru - Evolution.png" alt="Scholar Slime" style={{ height: '60px', width: '60px', borderRadius: '50%', backgroundColor: '#EFF6FF', padding: '0.5rem' }} />
+              <img src={miruEvolution} alt="Scholar Slime" style={{ height: '60px', width: '60px', borderRadius: '50%', backgroundColor: '#EFF6FF', padding: '0.5rem' }} />
               <div>
                 <div style={{ fontWeight: '700', fontSize: '1.1rem' }}>Level 24</div>
                 <div style={{ color: '#6B7280', fontSize: '0.9rem' }}>Scholar Slime</div>
@@ -175,7 +178,7 @@ export default function LandingPage() {
             <h3 style={{ fontSize: '1rem', color: 'var(--text-dark)', marginBottom: '1.5rem', fontWeight: '600' }}>Active Community</h3>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-              <img src="/src/assets/Miru - Main.png" alt="Miru" style={{ height: '60px' }} />
+              <img src={miruMain} alt="Miru" style={{ height: '60px' }} />
               <div>
                 <div style={{ fontWeight: '700', fontSize: '1.25rem' }}>2,458</div>
                 <div style={{ fontSize: '0.85rem', color: '#6B7280' }}>Students Online</div>

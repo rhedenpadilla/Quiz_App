@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import AuthService from '../../services/AuthService.js';
 import { LayoutDashboard, Compass, BookOpen, Users, Trophy, Award, MessageSquare, Settings, LogOut } from 'lucide-react';
+import miruMain from '../../assets/miru-main.png';
 
 export default function AppLayout() {
   const user = AuthService.getCurrentUser() || { name: 'Alex O.', title: 'Scholar Slime', level: 24 };
@@ -28,7 +29,7 @@ export default function AppLayout() {
       {/* Sidebar */}
       <aside style={{ width: '250px', backgroundColor: 'var(--navy-blue)', borderRight: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', padding: '1.5rem 1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', paddingLeft: '0.5rem' }}>
-          <img src="/src/assets/Miru - Main.png" alt="Miru" style={{ height: '35px', width: '35px', objectFit: 'contain' }} />
+          <img src={miruMain} alt="Miru" style={{ height: '35px', width: '35px', objectFit: 'contain' }} />
           <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--text-light)', letterSpacing: '1px' }}>MIMORA</span>
         </div>
 
